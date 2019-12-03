@@ -1,0 +1,89 @@
+\usepackage{enumitem}% http://ctan.org/pkg/enumitem
+\newcommand{\nItem}{\newpage \item}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{titlesec}
+
+\titleformat{\section}[wrap]
+{\normalfont\bfseries}
+{\thesection.}{0.5em}{}
+\titlespacing{\section}{12pc}{1.5ex plus .1ex minus .2ex}{1pc}
+
+\newcommand{\sectionbreak}{\clearpage} % Section starts on a new page 
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}} % Subsections are letters
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{cancel}
+
+\usepackage{hyperref}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\cid}{01493016}
+\newcommand{\lcid}{CID: \cid}
+\newcommand{\name}{Ben David Pahnke}
+\newcommand{\lname}{Name: \name}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+
+\newcommand{\nameHeader}{\pagestyle{fancy}
+\rhead{\name\\ \cid}
+}
+\newcommand{\courseHeader}[1]{\nameHeader 
+\lhead{Course Code: #1}
+}
+\newcommand{\degreeHeader}[1]{\nameHeader
+\lhead{Course Code: #1 \\
+Degree Code: GG41}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\tLine}{  \\ \hline } % New Table line
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\topCorn}[1]{\ulcorner #1 \urcorner}
+\newcommand{\encDF}[2]{\langle \langle #1, #2 \rangle \rangle}
+\newcommand{\encSF}[2]{\langle #1, #2 \rangle}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\intAB}[2]{\int\limits^{#1}_{#2}}
+\newcommand{\sumAB}[2]{\sum\limits_{#1}^{#2}}
+\newcommand{\cupAB}[2]{\bigcup\limits_{#1}^{#2}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\spTxt}[1]{\ \text{#1} \ }
+\newcommand{\spImp}{\ \implies \ }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\half}{\frac{1}{2}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\rang}[2]{ [#1  ... \ #2 ]\,} %Inclusive Range
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\mR}[0]{\mathbb{R}} % real numbers
+\newcommand{\mZ}[0]{\mathbb{Z}} % integers
+\newcommand{\mN}[0]{\mathbb{N}} % natural numbers
+\newcommand{\mQ}[0]{\mathbb{Q}} % rational numbers
+\newcommand{\mC}[0]{\mathbb{C}} % complex numbers
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\betaFunc}[2]{ \frac{ \Gamma (#1 + #2)}{\Gamma(#1)\Gamma(#2)}} % Beta Function 
