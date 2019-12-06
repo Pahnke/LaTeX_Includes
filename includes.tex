@@ -1,5 +1,5 @@
 \usepackage{enumitem}% http://ctan.org/pkg/enumitem
-\newcommand{\nItem}{\newpage \item}
+\newcommand{\nItem}[0]{\newpage \item}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -10,8 +10,8 @@
 {\thesection.}{0.5em}{}
 \titlespacing{\section}{12pc}{1.5ex plus .1ex minus .2ex}{1pc}
 
-\newcommand{\sectionbreak}{\clearpage} % Section starts on a new page 
-\renewcommand{\thesubsection}{\thesection.\alph{subsection}} % Subsections are letters
+\newcommand{\sectionbreak}[0]{\clearpage} % Section starts on a new page
+\renewcommand{\thesubsection}[0]{\thesection.\alph{subsection}} % Subsections are letters
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -20,15 +20,11 @@
 \usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage{cancel}
+\usepackage{tikz} % Graphs
 
 \usepackage{hyperref}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newcommand{\cid}{01493016}
-\newcommand{\lcid}{CID: \cid}
-\newcommand{\name}{Ben David Pahnke}
-\newcommand{\lname}{Name: \name}
+\usepackage{rotating}
+\usepackage{fullpage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -36,26 +32,41 @@
 \usepackage[utf8]{inputenc}
 \usepackage{fancyhdr}
 
-\newcommand{\nameHeader}{\pagestyle{fancy}
-\rhead{\name\\ \cid}
-}
-\newcommand{\courseHeader}[1]{\nameHeader 
-\lhead{Course Code: #1}
-}
-\newcommand{\degreeHeader}[1]{\nameHeader
-\lhead{Course Code: #1 \\
-Degree Code: GG41}}
+\fancypagestyle{firstPageStyle}
+{
+   \fancyhf{}
+   \nameHeader
+
+} % Used to set style of first page
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\tLine}{  \\ \hline } % New Table line
+\newcommand{\cid}[0]{01493016}
+\newcommand{\lcid}[0]{CID: \cid}
+\newcommand{\name}[0]{Ben David Pahnke}
+\newcommand{\lname}[0]{Name: \name}
+\newcommand{\degreeCode}[0]{GG41}
+\newcommand{\ldegreeCode}[0]{Degree Code: \degreeCode}
+\newcommand{\lcourseCode}[1]{Course Code: #1}
+
+\newcommand{\nameHeader}[0]{\pagestyle{fancy}
+\rhead{\name\\ \cid}}
+\newcommand{\courseHeader}[1]{\nameHeader
+\lhead{\lcourseCode{#1}}}
+\newcommand{\degreeHeader}[1]{\nameHeader
+\lhead{\lcourseCode{#1} \\
+\ldegreeCode}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\tLine}[0]{  \\ \hline } % New Table line
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\topCorn}[1]{\ulcorner #1 \urcorner}
-\newcommand{\encDF}[2]{\langle \langle #1, #2 \rangle \rangle}
-\newcommand{\encSF}[2]{\langle #1, #2 \rangle}
-
+\newcommand{\sPPair}[2]{\langle \langle #1, #2 \rangle \rangle}
+\newcommand{\sPair}[2]{\langle #1, #2 \rangle}
+\newcommand{\defEq}[0]{\stackrel{\text{def}}{=}} % = with def above it
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -66,11 +77,11 @@ Degree Code: GG41}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\spTxt}[1]{\ \text{#1} \ }
-\newcommand{\spImp}{\ \implies \ }
+\newcommand{\spImp}[0]{\ \implies \ }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\half}{\frac{1}{2}}
+\newcommand{\half}[0]{\frac{1}{2}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -86,4 +97,4 @@ Degree Code: GG41}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\betaFunc}[2]{ \frac{ \Gamma (#1 + #2)}{\Gamma(#1)\Gamma(#2)}} % Beta Function 
+\newcommand{\betaFunc}[2]{ \frac{ \Gamma (#1 + #2)}{\Gamma(#1)\Gamma(#2)}} % Beta Function
