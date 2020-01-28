@@ -13,6 +13,11 @@
 \newcommand{\sectionbreak}[0]{\clearpage} % Section starts on a new page
 \renewcommand{\thesubsection}[0]{\thesection.\alph{subsection}} % Subsections are letters
 
+% Removes section numbers
+%\makeatletter
+%\renewcommand{\@seccntformat}[1]{}
+%\makeatother
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage{amsfonts}
@@ -25,6 +30,8 @@
 \usepackage{hyperref}
 \usepackage{rotating}
 \usepackage{fullpage}
+\usepackage{fixltx2e} % Normal text sub and super scripts
+\usepackage{minted} % Copy and paste code in
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -34,9 +41,9 @@
 
 \fancypagestyle{firstPageStyle}
 {
-   \fancyhf{} % Clears any current format
+   \fancyhf{}
    \nameHeader
-	 \cfoot{\thepage} % Page No. center
+   \cfoot{\thepage} % Page No. center
 
 } % Used to set style of first page
 
@@ -73,6 +80,7 @@
 
 \newcommand{\intAB}[2]{\int\limits^{#1}_{#2}}
 \newcommand{\sumAB}[2]{\sum\limits_{#1}^{#2}}
+\newcommand{\prodAB}[2]{\prod\limits_{#1}^{#2}}
 \newcommand{\cupAB}[2]{\bigcup\limits_{#1}^{#2}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -87,6 +95,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\rang}[2]{ [#1  ... \ #2 ]\,} %Inclusive Range
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\tL}{\text{L}}
+\newcommand{\tP}{\text{P}}
+\newcommand{\tE}{\text{E}}
+\newcommand{\tQ}{\text{Q}}
+\newcommand{\tR}{\text{R}}
+
+\newcommand{\hpi}{\hat{\pi}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
