@@ -5,11 +5,7 @@
 
 \usepackage{enumitem}% http://ctan.org/pkg/enumitem
 \newcommand{\nItem}[0]{\newpage \item}
-% \begin{enumerate}[label = \arabic*)] % Numbers
-% \begin{enumerate}[label = \alph*)]	% Letters
-% \item
-% \end{enumerate}
-
+\newcommand{\nitem}{\nItem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -47,7 +43,6 @@
 \usepackage{graphicx}
 %\includegraphics[width=\textwidth]{Data1Plot.png}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage[english]{babel}
@@ -55,18 +50,14 @@
 \usepackage{fancyhdr}
 
 \usepackage[%
-    headheight=120pt, % height for the header block (no equivalent for footer)
+    headheight=120pt,     % height for the header block (no equivalent for footer)
 ]{geometry}
 
-\fancypagestyle{firstPageStyle}
+\fancypagestyle{headerPageStyle}
 {
    \fancyhf{}
    \cfoot{\thepage} % Page No. center
-    \degreeHeader{TODO}
-} % Used to set style of first page
-
-% \thispagestyle{firstPageStyle}
-% Place on first page
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -78,7 +69,7 @@
 \newcommand{\ldegreeCode}[0]{Degree Code: \degreeCode}
 \newcommand{\lcourseCode}[1]{Course Code: #1}
 
-\newcommand{\nameHeader}[0]{\pagestyle{fancy}
+\newcommand{\nameHeader}[0]{\pagestyle{headerPageStyle}
 \rhead{\name\\ \cid} \lhead{\leftmark}}
 \newcommand{\courseHeader}[1]{\nameHeader
 \lhead{\lcourseCode{#1}}}
