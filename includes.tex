@@ -54,12 +54,15 @@
 \usepackage[utf8]{inputenc}
 \usepackage{fancyhdr}
 
+\usepackage[%
+    headheight=120pt, % height for the header block (no equivalent for footer)
+]{geometry}
+
 \fancypagestyle{firstPageStyle}
 {
    \fancyhf{}
-   \nameHeader
    \cfoot{\thepage} % Page No. center
-
+    \degreeHeader{TODO}
 } % Used to set style of first page
 
 % \thispagestyle{firstPageStyle}
