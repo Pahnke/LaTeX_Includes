@@ -6,6 +6,9 @@
 \usepackage{enumitem}% http://ctan.org/pkg/enumitem
 \newcommand{\nItem}[0]{\newpage \item}
 \newcommand{\nitem}{\nItem}
+\newcommand{\letEnum}{\begin{enumerate}[label = \alph*)]}
+\newcommand{\numEnum}{\begin{enumerate}[label = \arabic*)]}
+\newcommand{\endEnum}{\end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -41,7 +44,7 @@
 % \begin{minted}[mathescape, linenos]{python}
 % \end{minted}
 \usepackage{graphicx}
-%\includegraphics[width=\textwidth]{Data1Plot.png}
+%\includegraphics[width=\textwidth]{FILE NAME}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -49,8 +52,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage{fancyhdr}
 
-\usepackage[%
-    headheight=120pt,     % height for the header block (no equivalent for footer)
+\usepackage[
+	headheight=120pt,% gap between header and text, gap between line and text
 ]{geometry}
 
 \fancypagestyle{headerPageStyle}
@@ -71,11 +74,11 @@
 
 \newcommand{\nameHeader}[0]{\pagestyle{headerPageStyle}
 \rhead{\name\\ \cid} \lhead{\leftmark}}
+\newcommand{\degreeHeader}[0]{\nameHeader
+\lhead{\ldegreeCode}}
 \newcommand{\courseHeader}[1]{\nameHeader
-\lhead{\lcourseCode{#1}}}
-\newcommand{\degreeHeader}[1]{\nameHeader
-\lhead{\lcourseCode{#1} \\
-\ldegreeCode}}
+\lhead{\lcourseCode{#1}} \\
+\ldegreeCode}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
