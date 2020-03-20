@@ -22,7 +22,7 @@
 \newcommand{\sectionbreak}[0]{\clearpage} % Section starts on a new page
 \renewcommand{\thesubsection}[0]{\thesection.\alph{subsection}} % Subsections are letters
 
-\allowdisplaybreaks
+%\allowdisplaybreaks
 
 % Removes section numbers
 %\makeatletter
@@ -98,7 +98,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\intAB}[2]{\int\limits^{#1}_{#2}}
+\newcommand{\intAB}[2]{\int\limits_{#1}^{#2}}
 \newcommand{\sumAB}[2]{\sum\limits_{#1}^{#2}}
 \newcommand{\prodAB}[2]{\prod\limits_{#1}^{#2}}
 \newcommand{\cupAB}[2]{\bigcup\limits_{#1}^{#2}}
@@ -115,6 +115,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\rang}[2]{ [#1  ... \ #2 ]\,} %Inclusive Range
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\eval}[1]{\begin{array}[t]{@{}c@{\,}|@{\,}}%
+\raisebox{0pt}[0.85\height][1.33\depth]{$ \displaystyle#1 $}\end{array}}
+% Evaluation for differentiation
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -123,6 +127,8 @@
 \newcommand{\tE}{\text{E}}
 \newcommand{\tQ}{\text{Q}}
 \newcommand{\tR}{\text{R}}
+
+\newcommand{\tp}{\text{p}}
 
 \newcommand{\hpi}{\hat{\pi}}
 
