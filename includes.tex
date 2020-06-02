@@ -34,6 +34,7 @@
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{amsthm}
 \usepackage{mathtools}
 \usepackage{cancel}
 \usepackage{tikz} % Graphs
@@ -84,6 +85,14 @@
 \lhead{\ldegreeCode}}
 \newcommand{\courseHeader}[1]{\nameHeader
 \lhead{\lcourseCode{#1} \\ \ldegreeCode}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Use \begin{theorem} ... \end{theorem}
+\newtheorem{theorem}{Theorem}[section]   % Theorem numbers relate to sections
+\newtheorem{lemma}[theorem]{Lemma}       % Lemma numbers use theorem numbers
+\newtheorem*{remark}{Remark}             % Remarks have no numbers
+\newtheorem*{definition}{Definition}     % Def's have no numbers
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
