@@ -5,10 +5,10 @@
 
 \usepackage{enumitem}% http://ctan.org/pkg/enumitem
 \newcommand{\nItem}[0]{\newpage \item}
-\newcommand{\nitem}{\nItem}
-\newcommand{\letEnum}{\begin{enumerate}[label = \alph*)]}
-\newcommand{\numEnum}{\begin{enumerate}[label = \arabic*)]}
-\newcommand{\eEnum}{\end{enumerate}}
+\newcommand{\nitem}[0]{\nItem}
+\newcommand{\letEnum}[0]{\begin{enumerate}[label = \alph*)]}
+\newcommand{\numEnum}[0]{\begin{enumerate}[label = \arabic*)]}
+\newcommand{\eEnum}[0]{\end{enumerate}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -126,15 +126,22 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\tL}{\text{L}}
-\newcommand{\tP}{\text{P}}
-\newcommand{\tE}{\text{E}}
-\newcommand{\tQ}{\text{Q}}
-\newcommand{\tR}{\text{R}}
+% Upper case Latin letters
+\newcommand{\tL}[0]{\text{L}}
+\newcommand{\tP}[0]{\text{P}}
+\newcommand{\tE}[0]{\text{E}}
+\newcommand{\tQ}[0]{\text{Q}}
+\newcommand{\tR}[0]{\text{R}}
 
-\newcommand{\tp}{\text{p}}
+% Lower case Latin letters
+\newcommand{\tp}[0]{\text{p}}
 
-\newcommand{\hpi}{\hat{\pi}}
+% "Phrases"
+\newcommand{\st}[0]{\text{s.t}}
+\newcommand{\sst}[0]{\ \st \ }
+
+% Misc
+\newcommand{\hpi}[0]{\hat{\pi}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
