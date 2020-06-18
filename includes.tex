@@ -15,38 +15,98 @@
 \usepackage{titlesec}
 
 \newcommand{\sectionbreak}[0]{\clearpage} % Section starts on a new page
-% \renewcommand{\thesubsection}[0]{\thesection.\alph{subsection}} % Subsections are letters
+% \renewcommand{\thesubsection}[0]{\thesection.\alph{subsection}}
+% Subsections are letters
 
 %\allowdisplaybreaks
 
 % Removes section numbers
-% \makeatletter
+%\makeatletter
 %\renewcommand{\@seccntformat}[1]{}
 %\makeatother
+
+%\setcounter{tocdepth}{0} % Set's table of Content depth, 0 = Chapters only
+
+%\appendix % Sets numbers to A.n after this point
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{amsthm}
 \usepackage{mathtools}
 \usepackage{cancel}
-\usepackage{tikz} % Graphs
+\usepackage{physics}
 
+\usepackage{url}
 \usepackage{hyperref}
+\usepackage{cleveref} % cleveref has to go after hyperref
 \usepackage{rotating}
 \usepackage{fullpage}
-\usepackage{fixltx2e} % Normal text sub and super scripts
+%\usepackage{fixltx2e} - Now in Kernel?
+% Normal text sub and super scripts
+
 \usepackage{minted} % Copy and paste code in
 % \begin{minted}[mathescape, linenos]{python}
 % \end{minted}
 % \inputminted[mathescape, linenos]{python}{FILENAME.py}
-\usepackage{graphicx}
+
+\usepackage{graphicx} % Photo, Image
 %\includegraphics[width=\textwidth]{FILE NAME}
-\usepackage{pdfpages}
+
+\usepackage{pdfpages} % Pdf
 %\includepdf[page={page number}]{filename}
 %\includepdf[page=-]{filename}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Referencing
+%\usepackage{biblatex}
+% Add inbetween usepackage and {..} for frames (slides)
+%[style=verbose,backend=biber, autocite=superscript]
+%\addbibresource{ref.bib}
+%\cite[pg n]{ Key }
+% pg optional
+
+% In ref.bib file
+% Can use \begin{filecontents}{ref.bib} ... \end{filecontents}
+% @Type{ Key, field = {value}, ... }
+
+%\bibliographystyle{unsrt}
+%\bibliography{references}
+
+\usepackage{fnpct} % Footcite size
+%\setbeamerfont{footnote}{size=\scriptsize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Frames
+%\frame{ ... }
+%\frametitle{title}
+%\onslide<1->{ ... }
+%\footcite{ ... }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% .X + .Y = 1
+% Works for n pages
+
+%\begin{minipage}{.X\textwidth}
+% ...
+%\end{minipage}%
+%\begin{minipage}{.Y\textwidth}
+% ...
+%\end{minipage}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{tikz} % Graphs
+\usetikzlibrary{shapes.arrows,positioning}
+%\begin{tikzpicture}
+%    \node (n1) at (0,0) [circle, draw, label = 1]{a};
+%    \node (n2) at (2,0) [circle, draw, label = 2]{b};
+%    \draw[red] (n1) -- (n2);
+%\end{tikzpicture}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -63,6 +123,11 @@
    \fancyhf{}
    \cfoot{\thepage} % Page No. center
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{csquotes} % Quotes -Has to go after inputenc
+%\blockquote{I ... end.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -83,12 +148,32 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\usepackage{amsthm}
+
 % Use \begin{theorem} ... \end{theorem}
-\newtheorem{theorem}{Theorem}[section]   % Theorem numbers relate to sections
+%\theoremstyle{definition}               % Make theorems & co not italics
+\newtheorem{theorem}{Theorem}%[chapter]  % Uncomment for theorem based off chapter no
+                                         % Can use [section] and so on
 \newtheorem{lemma}[theorem]{Lemma}       % Lemma numbers use theorem numbers
 \newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
 \newtheorem*{remark}{Remark}             % Remarks have no numbers
-\newtheorem*{definition}{Definition}     % Def's have no numbers
+\newtheorem*{remarks}{Remarks}
+
+% \label{labName}
+% \ref{labName}                          % Give \cref{labName} a try
+
+\usepackage{etoolbox}                    % http://ctan.org/pkg/etoolbox
+% Changes definitions headings
+\patchcmd{\thmhead}{(#3)}{: [\textbf{#3}]}{}{}
+\patchcmd{\thmpuncuation}{.}{}{}{}
+\newtheorem{definition}[theorem]{Definition}
+
+\theoremstyle{definition}
+\newtheorem*{example}{Example}
+
+\usepackage{chngcntr}
+\counterwithin{equation}{theorem}        % Equation no's sub theorem no
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -103,7 +188,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\intAB}[2]{\int\limits_{#1}^{#2}}
+\newcommand{\intAB}[2]{\int\limits_{#1}^{#2}}     % Integration
 \newcommand{\sumAB}[2]{\sum\limits_{#1}^{#2}}
 \newcommand{\prodAB}[2]{\prod\limits_{#1}^{#2}}
 \newcommand{\cupAB}[2]{\bigcup\limits_{#1}^{#2}}
@@ -119,22 +204,22 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%\abs{x} % |x|
 \newcommand{\rang}[2]{ [#1  ... \ #2 ]\,} %Inclusive Range
-\newcommand{\abs}[1]{\left| #1 \right|}
-\newcommand{\eval}[1]{\begin{array}[t]{@{}c@{\,}|@{\,}}%
-\raisebox{0pt}[0.85\height][1.33\depth]{$ \displaystyle#1 $}\end{array}}
-% Evaluation for differentiation
+%\newcommand{\eval}[1]{\begin{array}[t]{@{}c@{\,}|@{\,}}%
+%\raisebox{0pt}[0.85\height][1.33\depth]{$ \displaystyle#1 $}\end{array}}
+% Evaluation for differentiation -In a package now, same thing though
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Upper case Latin letters
+% Uppercase Latin letters
 \newcommand{\tL}[0]{\text{L}}
 \newcommand{\tP}[0]{\text{P}}
 \newcommand{\tE}[0]{\text{E}}
 \newcommand{\tQ}[0]{\text{Q}}
 \newcommand{\tR}[0]{\text{R}}
 
-% Lower case Latin letters
+% Lowercase Latin letters
 \newcommand{\tp}[0]{\text{p}}
 
 % "Phrases"
@@ -155,3 +240,25 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\betaFunc}[2]{ \frac{ \Gamma (#1 + #2)}{\Gamma(#1)\Gamma(#2)}} % Beta Function
+
+%\underbrace{Above the bracket}_\text{Under the bracket}
+
+% Function def
+% f(x) = \begin{cases}
+%X,& \text{Info}\\
+%Y,& \text{otherwise}\\
+%\end{cases}
+
+% Matrix def
+% \begin{pmatrix}
+% 1 & 2 & 3 \\
+% 4 & 5 & 6 \\
+% \end{pmatrix}
+
+% Isomorphism
+% \cong
+
+% cross x
+%\times
+% dot
+%\cdot
