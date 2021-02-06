@@ -53,15 +53,15 @@
 %\usepackage{fixltx2e} - Now in Kernel?
 % Normal text sub and super scripts
 
-\usepackage[chapter, newfloat]{minted} % Copy and paste code in
+%\usepackage[chapter, newfloat]{minted} % Copy and paste code in
 % \begin{minted}[mathescape, linenos]{python}
 % \end{minted}
 % \inputminted[mathescape, linenos]{python}{FILENAME.py}
 
-\usepackage{caption}
+%\usepackage{caption}
 
-\newenvironment{code}{\captionsetup{type=listing}}{}
-\SetupFloatingEnvironment{listing}{name=Code}
+%\newenvironment{code}{\captionsetup{type=listing}}{}
+%\SetupFloatingEnvironment{listing}{name=Code}
 
 % Eg.
 %\section{Program Output}\label{cod:outputNoZD}
@@ -73,7 +73,7 @@
 \usepackage{graphicx} % Photo, Image
 %\includegraphics[width=\textwidth]{FILE NAME}
 
-\usepackage{placeins}
+%\usepackage{placeins}
 % Required for float barrier
 
 % Eg.
@@ -208,13 +208,13 @@
 
 % Use \begin{theorem} ... \end{theorem}
 %\theoremstyle{definition}               % Make theorems & co not italics
-\newtheorem{theorem}{Theorem}[chapter]  % Uncomment for theorem based off chapter no
+%\newtheorem{theorem}{Theorem}[chapter]  % Uncomment for theorem based off chapter no
                                          % Can use [section] and so on
-\newtheorem{lemma}[theorem]{Lemma}       % Lemma numbers use theorem numbers
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem*{remark}{Remark}             % Remarks have no numbers
-\newtheorem*{remarks}{Remarks}
+%\newtheorem{lemma}[theorem]{Lemma}       % Lemma numbers use theorem numbers
+%\newtheorem{corollary}[theorem]{Corollary}
+%\newtheorem{proposition}[theorem]{Proposition}
+%\newtheorem*{remark}{Remark}             % Remarks have no numbers
+%\newtheorem*{remarks}{Remarks}
 
 % \label{labName}
 % \ref{labName}                          % Give \cref{labName} a try
@@ -223,10 +223,10 @@
 % Changes definitions headings
 \patchcmd{\thmhead}{(#3)}{: [\textbf{#3}]}{}{}
 \patchcmd{\thmpuncuation}{.}{}{}{}
-\newtheorem{definition}[theorem]{Definition}
+%\newtheorem{definition}[theorem]{Definition}
 
 \theoremstyle{definition}
-\newtheorem*{example}{Example}
+%\newtheorem*{example}{Example}
 
 \usepackage{chngcntr}
 %\counterwithin{equation}{theorem}        % Equation no's sub theorem no
@@ -334,3 +334,4 @@
 
 % bold
 % \textbf{z}
+
