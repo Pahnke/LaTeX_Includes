@@ -1,3 +1,4 @@
+% \documentclass[12pt,twoside]{article}
 % \input{includes.tex}
 % Used to import includes
 
@@ -14,7 +15,7 @@
 
 \usepackage{titlesec}
 
-%\newcommand{\sectionbreak}[0]{\clearpage} % Section starts on a new page
+% \newcommand{\sectionbreak}[0]{\clearpage} % Section starts on a new page
 % \renewcommand{\thesubsection}[0]{\thesection.\alph{subsection}}
 % Subsections are letters
 
@@ -26,8 +27,11 @@
 %\makeatother
 
 %\setcounter{tocdepth}{0} % Set's table of Content depth, 0 = Chapters only
+% To add Table of Conents Page
+%\tableofcontents
 
 %\appendix % Sets numbers to A.n after this point
+%\chapter{Appendix}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -49,13 +53,38 @@
 %\usepackage{fixltx2e} - Now in Kernel?
 % Normal text sub and super scripts
 
-\usepackage{minted} % Copy and paste code in
+\usepackage[chapter, newfloat]{minted} % Copy and paste code in
 % \begin{minted}[mathescape, linenos]{python}
 % \end{minted}
 % \inputminted[mathescape, linenos]{python}{FILENAME.py}
 
+\usepackage{caption}
+
+\newenvironment{code}{\captionsetup{type=listing}}{}
+\SetupFloatingEnvironment{listing}{name=Code}
+
+% Eg.
+%\section{Program Output}\label{cod:outputNoZD}
+%\begin{code}
+%	\inputminted[breaklines]{text}{noZDOutput.txt}
+%	\captionof{listing}{Console Output of My Own Tournament}
+%\end{code}
+
 \usepackage{graphicx} % Photo, Image
 %\includegraphics[width=\textwidth]{FILE NAME}
+
+\usepackage{placeins}
+% Required for float barrier
+
+% Eg.
+%\FloatBarrier
+%\begin{figure}[h]
+%    \centering
+%    \includegraphics[scale=0.45]{newBot.png}
+%    \caption{Sample Bot Comment for Errors}
+%    \label{fig:BotComment}
+%\end{figure}
+%\FloatBarrier
 
 \usepackage{pdfpages} % Pdf
 %\includepdf[page={page number}]{filename}
@@ -74,6 +103,27 @@
 % In ref.bib file
 % Can use \begin{filecontents}{ref.bib} ... \end{filecontents}
 % @Type{ Key, field = {value}, ... }
+
+% Eg.
+%@misc{AxelrodLibrary,
+%  author = {Axelrod-Python},
+%  title = {Axelrod},
+%  year = {2020},
+%  publisher = {GitHub},
+%  journal = {GitHub repository},
+%  howpublished = {\url{https://github.com/Axelrod-Python/Axelrod}},
+%  commit = {c1c6a561602af2a42e2603581d04fb995ae87ac6}
+%}
+
+% Eg.
+%@misc{mathWorldCramers,
+%author = {Weisstein, Eric W.},
+%journal = {MathWorld--A Wolfram Web Resource},
+%publisher = {Wolfram Research, Inc.},
+%title = {{Cramer's Rule}},
+%howpublished = {\url{https://mathworld.wolfram.com/CramersRule.html}},
+%note = {Accessed: 2021-01-11},
+%}
 
 %\bibliographystyle{unsrt}
 %\bibliography{references}
@@ -121,6 +171,9 @@
 	headheight=120pt,% gap between header and text, gap between line and text
 ]{geometry}
 
+% Add a gap, vertical space, break, new line
+% \vspace{5mm}
+
 \fancypagestyle{headerPageStyle}
 {
    \fancyhf{}
@@ -155,7 +208,7 @@
 
 % Use \begin{theorem} ... \end{theorem}
 %\theoremstyle{definition}               % Make theorems & co not italics
-\newtheorem{theorem}{Theorem}%[chapter]  % Uncomment for theorem based off chapter no
+\newtheorem{theorem}{Theorem}[chapter]  % Uncomment for theorem based off chapter no
                                          % Can use [section] and so on
 \newtheorem{lemma}[theorem]{Lemma}       % Lemma numbers use theorem numbers
 \newtheorem{corollary}[theorem]{Corollary}
@@ -176,7 +229,7 @@
 \newtheorem*{example}{Example}
 
 \usepackage{chngcntr}
-\counterwithin{equation}{theorem}        % Equation no's sub theorem no
+%\counterwithin{equation}{theorem}        % Equation no's sub theorem no
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -221,6 +274,8 @@
 \newcommand{\tE}[0]{\text{E}}
 \newcommand{\tQ}[0]{\text{Q}}
 \newcommand{\tR}[0]{\text{R}}
+\newcommand{\tS}[0]{\text{S}}
+\newcommand{\tT}[0]{\text{T}}
 
 % Lowercase Latin letters
 \newcommand{\tp}[0]{\text{p}}
@@ -265,3 +320,17 @@
 %\times
 % dot
 %\cdot
+% divide, div (caused by physics package)
+%\divisionsymbol
+
+% Tends to, limit
+%\to
+
+% Line, squiggle, wavy bar
+%\tilde{z}
+
+% ^ bar, line
+%\hat{z}
+
+% bold
+% \textbf{z}
