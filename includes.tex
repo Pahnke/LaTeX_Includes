@@ -43,7 +43,7 @@
 \usepackage{amsfonts}
 \usepackage{amsmath}
 
-% If in \begin{align} mode, use \intertext{A comment} to add side text
+% If in \begin{align} mode, use \pintertext{A comment} to add side text
 
 \usepackage{amssymb}
 \usepackage{mathtools}
@@ -252,7 +252,18 @@
 \newcommand{\intAB}[2]{\int\limits_{#1}^{#2}}     % Integration
 \newcommand{\sumAB}[2]{\sum\limits_{#1}^{#2}}
 \newcommand{\prodAB}[2]{\prod\limits_{#1}^{#2}}
-\newcommand{\cupAB}[2]{\bigcup\limits_{#1}^{#2}}
+\newcommand{\cupAB}[2]{\bigcup\limits_{#1}^{#2}} % Union union
+\newcommand{\capAB}[2]{\bigcap\limits_{#1}^{#2}} % Intersection intersection
+\newcommand{\oPlusAB}[2]{\bigoplus\limits_{#1}^{#2}}
+\newcommand{\oTimesAB}[2]{\bigotimes\limits_{#1}^{#2}}
+
+% Tensor Product tensor product o cross ocross
+% \otimes
+% \bigotimes
+
+% Direct Sum direct sum plus in circle Circle Plus
+% \oplus
+% \bigoplus
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -294,6 +305,9 @@
 % Misc
 \newcommand{\hpi}[0]{\hat{\pi}}
 
+% Gothic gothic letters
+\newcommand{\ga}[0]{\mathfrak{a}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\mR}[0]{\mathbb{R}} % real numbers
@@ -324,8 +338,9 @@
 % 4 & 5 & 6 \\
 % \end{pmatrix}
 
-% Isomorphism
+% Isomorphism iso
 % \cong
+\newcommand{\iso}[0]{\cong}
 
 % mod, modulo, congurent
 % \equiv
@@ -355,3 +370,23 @@
 
 % bold
 % \textbf{z}
+
+% Subset sub set subset
+% \subset
+% \subseteq
+% \subsetneq
+% right to left
+% \supset
+% \supseteq
+% \supsetneq
+
+% backslash back slash
+\newcommand{\bsl}[0]{\char `\\}
+
+% arrow rightarrow leftarrow
+% \leftarrow
+% \rightarrow
+% \mapsto
+% \hooksrightarrow
+% \longleftarrow
+
