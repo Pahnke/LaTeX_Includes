@@ -1,5 +1,10 @@
 % \documentclass[12pt,twoside]{article}
 % \input{includes.tex}
+%
+% \begin{document}
+%
+%
+% \end{document}
 % Used to import includes
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -42,8 +47,6 @@
 
 \usepackage{amsfonts}
 \usepackage{amsmath}
-
-% If in \begin{align} mode, use \pintertext{A comment} to add side text
 
 \usepackage{amssymb}
 \usepackage{mathtools}
@@ -207,6 +210,9 @@
 \newcommand{\courseHeader}[1]{\nameHeader
 \lhead{\lcourseCode{#1} \\ \ldegreeCode}}
 
+\newcommand{\anonBorder}[2]{\pagestyle{headerPageStyle}
+\lhead{#1}\rhead{#2}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage{amsthm}
@@ -238,7 +244,8 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\tLine}[0]{  \\ \hline } % New Table line
+% New Table line
+\newcommand{\tLine}[0]{  \\ \hline } 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -249,6 +256,8 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Better Limits ab
+% \sumAB{i=1}{n}
 \newcommand{\intAB}[2]{\int\limits_{#1}^{#2}}     % Integration
 \newcommand{\sumAB}[2]{\sum\limits_{#1}^{#2}}
 \newcommand{\prodAB}[2]{\prod\limits_{#1}^{#2}}
@@ -267,16 +276,19 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Spaces
 \newcommand{\spTxt}[1]{\ \text{#1} \ }
 \newcommand{\spImp}[0]{\ \implies \ }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Fractions
 \newcommand{\half}[0]{\frac{1}{2}}
 \newcommand{\quarter}[0]{\frac{1}{4}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Ranges
 %\abs{x} % |x|
 \newcommand{\rang}[2]{ [#1  ... \ #2 ]\,} %Inclusive Range
 %\newcommand{\eval}[1]{\begin{array}[t]{@{}c@{\,}|@{\,}}%
@@ -298,6 +310,7 @@
 \newcommand{\tp}[0]{\text{p}}
 
 % "Phrases"
+% Such that such that
 \newcommand{\st}[0]{\text{s.t}}
 \newcommand{\sst}[0]{\ \st \ }
 \newcommand{\spst}[0]{\ \st \ }
@@ -310,21 +323,27 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\mR}[0]{\mathbb{R}} % real numbers
-\newcommand{\mZ}[0]{\mathbb{Z}} % integers
-\newcommand{\mN}[0]{\mathbb{N}} % natural numbers
-\newcommand{\mQ}[0]{\mathbb{Q}} % rational numbers
-\newcommand{\mC}[0]{\mathbb{C}} % complex numbers
+% Numbers
+\newcommand{\mR}[0]{\mathbb{R}} % Real
+\newcommand{\mZ}[0]{\mathbb{Z}} % Integers
+\newcommand{\mN}[0]{\mathbb{N}} % Natural
+\newcommand{\mQ}[0]{\mathbb{Q}} % Rational
+\newcommand{\mC}[0]{\mathbb{C}} % Complex
 
 % Rings, fields
-
 \newcommand{\mZi}[0]{\mathbb{Z}[i]}
+% Ring of integers O ring Integers
+\newcommand{\rO}[0]{\mathcal{O}}
+\newcommand{\OK}[0]{\rO_K}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\betaFunc}[2]{ \frac{ \Gamma (#1 + #2)}{\Gamma(#1)\Gamma(#2)}} % Beta Function
+% Beta Function
+\newcommand{\betaFunc}[2]{ \frac{ \Gamma (#1 + #2)}{\Gamma(#1)\Gamma(#2)}}
 
 %\underbrace{Above the bracket}_\text{Under the bracket}
+
+% If in \begin{align} mode, use \intertext{A comment} to add side text
 
 % Function def
 % f(x) = \begin{cases}
@@ -342,36 +361,40 @@
 % \cong
 \newcommand{\iso}[0]{\cong}
 
-% mod, modulo, congurent
+% Mod, mod, modulo, congurent
 % \equiv
 
-% cross x
-%\times
+% Cross x
+% \times
 % dot
-%\cdot
-% divide, div (caused by physics package)
-%\divisionsymbol
+% \cdot
 
-% plus minus, plus-minus
+% Divide, div (caused by physics package)
+% \divisionsymbol
+
+% Doesn't divide Line with bar
+% \nmid
+
+% plus minus, plus-minus, Plus
 % \pm
 
-% unit ring
+% Unit ring
 % \cross
 % Eg. A^{\cross}
 
-% Tends to, limit
-%\to
+% Tends to, Limit
+% \to
 
-% Line, squiggle, wavy bar
-%\tilde{z}
+% Line, Squiggle, Wavy Bar
+% \tilde{z}
 
-% ^ bar, line
-%\hat{z}
+% ^ Bar, Line
+% \hat{z}
 
-% bold
+% Bold
 % \textbf{z}
 
-% Subset sub set subset
+% Subset sub set
 % \subset
 % \subseteq
 % \subsetneq
@@ -380,10 +403,10 @@
 % \supseteq
 % \supsetneq
 
-% backslash back slash
+% Backslash back slash
 \newcommand{\bsl}[0]{\char `\\}
 
-% arrow rightarrow leftarrow
+% Arrow rightarrow leftarrow
 % \leftarrow
 % \rightarrow
 % \mapsto
