@@ -10,13 +10,18 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage{enumitem}% http://ctan.org/pkg/enumitem
+\usepackage{ulem}% Used to Underline the Step
 \newcommand{\nItem}[0]{\newpage \item}
 \newcommand{\nitem}[0]{\nItem}
 \newcommand{\letEnum}[0]{\begin{enumerate}[label = \alph*)]}
-\newcommand{\numEnum}[0]{\begin{enumerate}[label = \arabic*)]}
+\newcommand{\numEnum}[0]{\begin{enumerate}[label = \arabic*.]}
 \newcommand{\eEnum}[0]{\end{enumerate}}
 
-% For bullet points use:
+\newcommand{\startSteps}[0]{\begin{enumerate}[label = \uline{Step \arabic*:}]}
+\newcommand{\step}[0]{\item \mbox{}\\}
+\newcommand{\stopSteps}[0]{\end{enumerate}}
+
+% For Bullet points use:
 %\begin{itemize}
 %		\item
 %\end{itemize}
@@ -25,7 +30,7 @@
 
 \usepackage{titlesec}
 
-\newcommand{\sectionbreak}[0]{\clearpage} % Section starts on a new page
+%\newcommand{\sectionbreak}[0]{\clearpage} % Section starts on a new page
 % \renewcommand{\thesubsection}[0]{\thesection.\alph{subsection}}
 % Subsections are letters
 
@@ -55,7 +60,7 @@
 
 \usepackage{url}
 \usepackage{hyperref}
-\usepackage{cleveref} % cleveref has to go after hyperref
+\usepackage[capitalise]{cleveref} % cleveref has to go after hyperref
 \usepackage{rotating}
 \usepackage{fullpage}
 %\usepackage{fixltx2e} - Now in Kernel?
@@ -81,7 +86,7 @@
 \usepackage{graphicx} % Photo, Image
 %\includegraphics[width=\textwidth]{FILE NAME}
 
-%\usepackage{placeins}
+\usepackage{placeins}
 % Required for float barrier
 
 % Eg.
@@ -100,8 +105,9 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Referencing
+% Referencing, Bibliography
 %\usepackage{biblatex}
+\usepackage[numbers]{natbib}
 % Add inbetween usepackage and {..} for frames (slides)
 %[style=verbose,backend=biber, autocite=superscript]
 %\addbibresource{ref.bib}
@@ -146,6 +152,9 @@
 %\frametitle{title}
 %\onslide<1->{ ... }
 %\footcite{ ... }
+
+% Footnote - non-beamer
+%\footnote{Text for footnote}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -209,6 +218,8 @@
 \lhead{\ldegreeCode}}
 \newcommand{\courseHeader}[1]{\nameHeader
 \lhead{\lcourseCode{#1} \\ \ldegreeCode}}
+\newcommand{\courseNoDegHeader}[1]{\nameHeader
+\lhead{#1}}
 
 \newcommand{\anonBorder}[2]{\pagestyle{headerPageStyle}
 \lhead{#1}\rhead{#2}}
@@ -245,7 +256,31 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % New Table line
-\newcommand{\tLine}[0]{  \\ \hline } 
+\newcommand{\tLine}[0]{  \\ \hline }
+% Table
+% \begin{center}
+% \begin{tabular}{ |p|p|p| }
+%  \hline
+%  cell1 & cell2 & cell3 \\
+%  cell4 & cell5 & cell6 \\
+%  cell7 & cell8 & cell9 \\
+%  \hline
+% \end{tabular}
+% \end{center}
+
+% Diagonal Box, Split Box
+\usepackage{diagbox}
+% \backslashbox{Room}{Date}
+
+% Cell Newline Wrap Text in Cell
+%\usepackage{makecell}
+% \makecell{First \\ Second, all in one cell}
+
+% Fixed Width Column
+%\usepackage{array}
+% \begin{tabular}{ |m||m{5cm}|m|m| }
+
+%\usepackage{longtable}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -279,6 +314,8 @@
 % Spaces
 \newcommand{\spTxt}[1]{\ \text{#1} \ }
 \newcommand{\spImp}[0]{\ \implies \ }
+% Comma Dots ", ..., "
+\newcommand{\comdots}[0]{,\, \dots,\,}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -309,17 +346,45 @@
 % Lowercase Latin letters
 \newcommand{\tp}[0]{\text{p}}
 
+% Bold Letters Numbers Vector
+\newcommand{\vZero}[0]{\mathbf{0}}
+\newcommand{\vOne}[0]{\mathbf{1}}
+\newcommand{\vk}[0]{\mathbf{k}}
+\newcommand{\vM}[0]{\mathbf{M}}
+\newcommand{\vN}[0]{\mathbf{N}}
+\newcommand{\vn}[0]{\mathbf{n}}
+\newcommand{\vS}[0]{\mathbf{S}}
+\newcommand{\bu}[0]{\textbf{\textit{u}}}
+
 % "Phrases"
 % Such that such that
 \newcommand{\st}[0]{\text{s.t}}
 \newcommand{\sst}[0]{\ \st \ }
 \newcommand{\spst}[0]{\ \st \ }
 
+\newcommand{\tnot}[0]{\text{not }}
+
 % Misc
 \newcommand{\hpi}[0]{\hat{\pi}}
 
 % Gothic gothic letters
 \newcommand{\ga}[0]{\mathfrak{a}}
+
+% Means, Average
+\newcommand{\oN}[0]{\overline N}
+\newcommand{\oNi}[0]{\overline N_i}
+\newcommand{\oNic}[0]{\overline N_{i,\, c}}
+\newcommand{\oNik}[0]{\overline N_{i,\, k}}
+\newcommand{\oNis}[0]{\overline N_{i,\, s}}
+\newcommand{\oQ}[0]{\overline Q}
+\newcommand{\oQi}[0]{\overline Q_i}
+\newcommand{\oR}[0]{\overline R}
+\newcommand{\oRi}[0]{\overline R_i}
+\newcommand{\oRic}[0]{\overline R_{i,\, c}}
+\newcommand{\oRik}[0]{\overline R_{i,\, k}}
+
+% Infinity
+% \infty
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -361,12 +426,12 @@
 % \cong
 \newcommand{\iso}[0]{\cong}
 
-% Mod, mod, modulo, congurent
+% Mod, mod, modulo, Congurent
 % \equiv
 
 % Cross x
 % \times
-% dot
+% Dot
 % \cdot
 
 % Divide, div (caused by physics package)
@@ -375,7 +440,7 @@
 % Doesn't divide Line with bar
 % \nmid
 
-% plus minus, plus-minus, Plus
+% plus minus, plus-minus, Plus Minus
 % \pm
 
 % Unit ring
@@ -412,4 +477,15 @@
 % \mapsto
 % \hooksrightarrow
 % \longleftarrow
+
+% Entails
+% \models
+% \not\models
+\newcommand{\entail}[0]{\models}
+\newcommand{\nentail}[0]{\not\models}
+\newcommand{\entails}[0]{\models}
+\newcommand{\nentails}[0]{\not\models}
+
+% And \land or can use \wedge
+% Or \lor or can use \vee
 
