@@ -7,26 +7,8 @@
 % \end{document}
 % Used to import includes
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\usepackage{enumitem}% http://ctan.org/pkg/enumitem
-\usepackage{ulem}% Used to Underline the Step
-\newcommand{\nItem}[0]{\newpage \item}
-\newcommand{\nitem}[0]{\nItem}
-\newcommand{\letEnum}[0]{\begin{enumerate}[label = \alph*)]}
-\newcommand{\numEnum}[0]{\begin{enumerate}[label = \arabic*.]}
-\newcommand{\eEnum}[0]{\end{enumerate}}
-
-\newcommand{\startSteps}[0]{\begin{enumerate}[label = \uline{Step \arabic*:}]}
-\newcommand{\step}[0]{\item \mbox{}\\}
-\newcommand{\stopSteps}[0]{\end{enumerate}}
-
-% For Bullet points use:
-%\begin{itemize}
-%		\item
-%\end{itemize}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\ll to start vim compiling
+%\le for error messages
 
 \usepackage{titlesec}
 
@@ -59,10 +41,9 @@
 \usepackage{physics}
 
 \usepackage{url}
-\usepackage{hyperref}
-\usepackage[capitalise]{cleveref} % cleveref has to go after hyperref
 \usepackage{rotating}
 \usepackage{fullpage}
+
 %\usepackage{fixltx2e} - Now in Kernel?
 % Normal text sub and super scripts
 
@@ -71,7 +52,7 @@
 % \end{minted}
 % \inputminted[mathescape, linenos]{python}{FILENAME.py}
 
-%\usepackage{caption}
+\usepackage[justification=centering]{caption}
 
 %\newenvironment{code}{\captionsetup{type=listing}}{}
 %\SetupFloatingEnvironment{listing}{name=Code}
@@ -84,6 +65,7 @@
 %\end{code}
 
 \usepackage{graphicx} % Photo, Image
+\usepackage{lipsum}
 %\includegraphics[width=\textwidth]{FILE NAME}
 
 \usepackage{placeins}
@@ -102,6 +84,7 @@
 \usepackage{pdfpages} % Pdf
 %\includepdf[page={page number}]{filename}
 %\includepdf[page=-]{filename}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -180,27 +163,25 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage[english]{babel}
-\usepackage[utf8]{inputenc}
+%\usepackage[english]{babel}
+%\usepackage[utf8]{inputenc}
 \usepackage{fancyhdr}
 
-\usepackage[
-	headheight=120pt,% gap between header and text, gap between line and text
-]{geometry}
+%\usepackage[
+%	headheight=120pt,% gap between header and text, gap between line and text
+%]{geometry}
 
 % Add a gap, vertical space, break, new line
 % \vspace{5mm}
 
-\fancypagestyle{headerPageStyle}
-{
-   \fancyhf{}
-   \cfoot{\thepage} % Page No. center
-}
+%\fancypagestyle{headerPageStyle}
+%{
+%   \fancyhf{}
+%   \cfoot{\thepage} % Page No. center
+%}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage{csquotes} % Quotes -Has to go after inputenc
-%\blockquote{I ... end.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -273,18 +254,19 @@
 % \backslashbox{Room}{Date}
 
 % Cell Newline Wrap Text in Cell
-%\usepackage{makecell}
+\usepackage{makecell}
 % \makecell{First \\ Second, all in one cell}
 
 % Fixed Width Column
-%\usepackage{array}
+\usepackage{array}
 % \begin{tabular}{ |m||m{5cm}|m|m| }
 
-%\usepackage{longtable}
+\usepackage{longtable}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\topCorn}[1]{\ulcorner #1 \urcorner}
+\newcommand{\botCorn}[1]{\llcorner #1 \lrcorner}
 \newcommand{\sPPair}[2]{\langle \langle #1, #2 \rangle \rangle}
 \newcommand{\sPair}[2]{\langle #1, #2 \rangle}
 \newcommand{\defEq}[0]{\stackrel{\text{def}}{=}} % = with def above it
@@ -354,6 +336,8 @@
 \newcommand{\vN}[0]{\mathbf{N}}
 \newcommand{\vn}[0]{\mathbf{n}}
 \newcommand{\vS}[0]{\mathbf{S}}
+\newcommand{\vQ}[0]{\mathbf{Q}}
+\newcommand{\vx}[0]{\mathbf{x}}
 \newcommand{\bu}[0]{\textbf{\textit{u}}}
 
 % "Phrases"
@@ -363,6 +347,7 @@
 \newcommand{\spst}[0]{\ \st \ }
 
 \newcommand{\tnot}[0]{\text{not }}
+\DeclareMathOperator{\prob}{Prob}
 
 % Misc
 \newcommand{\hpi}[0]{\hat{\pi}}
@@ -378,10 +363,15 @@
 \newcommand{\oNis}[0]{\overline N_{i,\, s}}
 \newcommand{\oQ}[0]{\overline Q}
 \newcommand{\oQi}[0]{\overline Q_i}
+\newcommand{\oQic}[0]{\overline Q_{i,\, c}}
+\newcommand{\oQik}[0]{\overline Q_{i,\, k}}
 \newcommand{\oR}[0]{\overline R}
 \newcommand{\oRi}[0]{\overline R_i}
 \newcommand{\oRic}[0]{\overline R_{i,\, c}}
 \newcommand{\oRik}[0]{\overline R_{i,\, k}}
+
+% Bold Maths Letters
+\newcommand{\bC}{\mathbf{C}}
 
 % Infinity
 % \infty
@@ -489,3 +479,152 @@
 % And \land or can use \wedge
 % Or \lor or can use \vee
 
+% Set comprehensions
+\newcommand{\scomp}[2]{\left\{#1\ \mid \ #2\right\}}
+% is an ideal of Ideal
+\newcommand{\ideal}[0]{\triangleleft}
+% is a prime ideal of Prime
+\newcommand{\pideal}[0]{\triangleleft_{\mathfrak{p}}}
+% is a maximal ideal of Maximal
+\newcommand{\mideal}[0]{\triangleleft_{\mathfrak{m}}}
+
+% Weird L l ell
+% \ell
+
+% Code Font
+\newcommand{\code}[1]{\texttt{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\CL}[0]{\textit{CL}}
+\newcommand{\BKT}[0]{\textit{BKT}}
+\newcommand{\NLI}[0]{\textit{NLI}}
+\newcommand{\RNLI}[0]{\textit{RNLI}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{multicol}
+
+\usepackage{hyperref}
+\usepackage[capitalise]{cleveref} % cleveref has to go after hyperref
+
+\usepackage{enumitem}% http://ctan.org/pkg/enumitem
+\usepackage{ulem}% Used to Underline the Step
+\newcommand{\nItem}[0]{\newpage \item}
+\newcommand{\nitem}[0]{\nItem}
+\newcommand{\letEnum}[0]{\begin{enumerate}[label = \alph*)]}
+\newcommand{\numEnum}[0]{\begin{enumerate}[label = \arabic*.]}
+\newcommand{\romEnum}[0]{\begin{enumerate}[label = \roman*)]}
+\newcommand{\eEnum}[0]{\end{enumerate}}
+
+\newlist{steps}{enumerate}{3}
+\setlist[steps,1]{label={\uline{Step \arabic*:}}, ref={\arabic*}}
+\setlist[steps,2]{label={\uline{Step \thestepsi.\arabic*:}}, ref={\thestepsi.\arabic*}}
+\setlist[steps,3]{label={\uline{Step \thestepsii.\arabic*:}}, ref={\thestepsii.\arabic*}}
+\crefname{stepsi}{Step}{Steps}
+\Crefname{stepsi}{Step}{Steps}
+\crefname{stepsii}{Step}{Steps}
+\Crefname{stepsii}{Step}{Steps}
+\crefname{stepsiii}{Step}{Steps}
+\Crefname{stepsiii}{Step}{Steps}
+\newcommand{\startSteps}[0]{\begin{steps}}
+\newcommand{\step}[0]{\item \mbox{}\\}
+\newcommand{\stopSteps}[0]{\end{steps}}
+
+% For Bullet points use:
+%\begin{itemize}
+%		\item
+%\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{pdflscape}
+\usepackage{afterpage}
+
+\usepackage[section]{placeins}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Beamer, Presentation, Slides
+
+%\begin{frame}
+%	\frametitle{Two Figures aside}
+%	\begin{columns}[b]
+%		\column{0.0125\textwidth}
+%		\column{0.4875\textwidth}
+%			\centering
+%			\begin{figure}
+%				\includegraphics[draft,width=\textwidth]{fooA.pdf} \
+%				% remove the 'draft' keyword, when replacing with final figure!
+%				\caption{Caption of Figure A}
+%			\end{figure}
+%		\column{0.4875\textwidth}
+%			\centering
+%			\begin{figure}
+%				\includegraphics[draft,width=\textwidth]{fooB.pdf} \
+%				% remove the 'draft' keyword, when replacing with final figure!
+%				\caption{Caption of Figure B}
+%			\end{figure}
+%		\column{0.0125\textwidth}
+%	\end{columns}
+%\end{frame}
+%
+%
+%\begin{frame}
+%	\frametitle{Text and Figure aside}
+%	\begin{columns}[]
+%		\column{0.0125\textwidth}
+%		\column{0.4875\textwidth}
+%			\centering
+%			\begin{figure}
+%				\includegraphics[draft,width=\textwidth]{fooC.pdf} \
+%				% remove the 'draft' keyword, when replacing with final figure!
+%				\caption{Caption of Figure C}
+%			\end{figure}
+%		\column{0.4875\textwidth}
+%			Some text and a bullet point list
+%			\begin{itemize}
+%				\item ItemA
+%				\item ItemB
+%				\item ItemC
+%				\item ItemD
+%			\end{itemize}
+%		\column{0.0125\textwidth}
+%	\end{columns}
+%\end{frame}
+%
+%
+%\begin{frame}
+%	\frametitle{One Figure}
+%	\bigskip
+%	\begin{figure}
+%		\includegraphics[draft,width=0.8\textwidth, height=0.5\textwidth]{fooD.pdf}
+%		% remove the 'draft' keyword, when replacing with final figure!
+%		\caption{Caption of Figure D}
+%	\end{figure}
+%\end{frame}
+%
+%
+%\begin{frame}
+%	\frametitle{Table and Block}
+%	\begin{table}[h]
+%		\centering
+%		\begin{tabular}{p{0.2\textwidth} p{0.7\textwidth}}
+%			\toprule
+%			\multicolumn{2}{p{0.9\textwidth}}{TableTitle} \\
+%			\midrule
+%			CapA       & lots of examplesA \\
+%
+%			CapB       & lots of examplesB \\
+%
+%			CapC       & lots of examplesC \\
+%			\bottomrule
+%		\end{tabular}
+%	\end{table}
+%
+%	\begin{block}{BlockTitle}
+%		something to emphasise
+%	\end{block}
+%\end{frame}
